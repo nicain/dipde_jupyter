@@ -1,38 +1,15 @@
-#
-# dipde Ubuntu Dockerfile
-#
-# https://github.com/dockerfile/ubuntu
-# https://github.com/nicain/dipde_dev
+FROM andrewosh/binder-base
 
-# Pull base image.
-FROM ubuntu:16.04
+MAINTAINER Jeremy Freeman <freeman.jeremy@gmail.com>
 
-# Install.
-RUN \
-  apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget
+USER root
 
-RUN \
-  apt-get install libqt4-dev qt4-qmake && \
-  wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh && \ 
-  chmod +x miniconda.sh && \
-  ./miniconda.sh -b && \
-  export PATH=/home/main/miniconda2/bin:$PATH && \
-  conda update --yes conda
+# Add dependency
+RUN apt-get update
+RUN apt-get install -y graphviz
 
-# Add files.
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
+USER main
 
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
-
-# Define default command.
-CMD ["bash"]
+# Install requirements for Python 2
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
