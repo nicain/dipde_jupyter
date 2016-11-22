@@ -1,15 +1,15 @@
 FROM andrewosh/binder-base
 
-MAINTAINER Jeremy Freeman <freeman.jeremy@gmail.com>
+MAINTAINER Andrew Osheroff <andrewosh@gmail.com>
 
 USER root
 
-# Add dependency
+# Add Julia dependencies
 RUN apt-get update
-RUN apt-get install -y graphviz
+RUN apt-get install -y julia libnettle4 && apt-get clean
 
 USER main
 
-# Install requirements for Python 2
-ADD requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+# Install Julia kernel
+RUN julia -e 'Pkg.add("IJulia")'
+RUN julia -e 'Pkg.add("Gadfly")' && julia -e 'Pkg.add("RDatasets")'
