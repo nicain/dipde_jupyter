@@ -13,8 +13,7 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get install -y byobu curl git htop man unzip vim wget
 
 RUN \
   apt-get install libqt4-dev qt4-qmake && \
