@@ -11,7 +11,7 @@ RUN apt-get install -y graphviz
 USER main
 
 
-RUN pip install https://github.com/nicain/dipde_dev/Janelia_2016
+RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
 
 # Install requirements for Python 2
 ADD requirements.txt requirements.txt
