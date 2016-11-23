@@ -6,12 +6,15 @@ USER root
 
 # Add dependency
 RUN apt-get update
-RUN apt-get install libqt4-dev qt4-qmake
+RUN apt-get install -y libqt4-dev qt4-qmake
 
 USER main
 
 
 RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
+
+
+RUN export DISPLAY=:99.0
 RUN py.test /home/main/anaconda2/lib/python2.7/site-packages/dipde/test
 
 # Install requirements for Python 2
