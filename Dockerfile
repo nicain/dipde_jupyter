@@ -13,6 +13,8 @@ USER main
 
 RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
 
+RUN py.test /home/main/anaconda2/lib/python2.7/site-packages/dipde/test
+
 # Install requirements for Python 2
-ADD requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+#ADD requirements.txt requirements.txt
+#RUN pip install -r requirements.txt
