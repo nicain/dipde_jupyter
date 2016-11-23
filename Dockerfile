@@ -11,4 +11,4 @@ USER main
 
 RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
 #RUN /usr/bin/xvfb-run py.test /home/main/anaconda2/lib/python2.7/site-packages/dipde/test
-
+RUN py.test /home/main/anaconda2/lib/python2.7/site-packages/dipde/test
