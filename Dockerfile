@@ -7,6 +7,7 @@ USER root
 # Add dependency
 RUN apt-get update
 RUN apt-get install -y libqt4-dev qt4-qmake
+RUN apt-get install -y xvfb
 
 USER main
 
