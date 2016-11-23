@@ -9,11 +9,11 @@ RUN apt-get update
 RUN apt-get install -y libqt4-dev qt4-qmake
 RUN apt-get install -y xvfb
 
+
 USER main
-
-
 RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
 
+USER root
 
 RUN export DISPLAY=:99.0
 RUN sh -e /etc/init.d/xvfb start
