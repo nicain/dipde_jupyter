@@ -8,8 +8,8 @@ USER root
 RUN apt-get update
 RUN apt-get install -y libqt4-dev qt4-qmake
 RUN apt-get install -y xvfb
-RUN export DISPLAY=:99.0
-RUN sh -e /etc/init.d/xvfb start
+ENV DISPLAY :99.0
+RUN sudo sh -e /etc/init.d/xvfb start
 RUN sleep 3 # give xvfb some time to start
 
 #USER main
