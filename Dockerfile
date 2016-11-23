@@ -12,7 +12,6 @@ USER main
 
 
 RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
-RUN pip install -r requirements.txt
 
 RUN "export DISPLAY=:99.0"
 RUN "sh -e /etc/init.d/xvfb start"
