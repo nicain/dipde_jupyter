@@ -1,6 +1,6 @@
 FROM andrewosh/binder-base
 
-MAINTAINER Jeremy Freeman <freeman.jeremy@gmail.com>
+MAINTAINER Nicholas Cain <nicholasc@galleninstitute.org>
 
 USER root
 
