@@ -15,6 +15,8 @@ RUN pip install https://github.com/nicain/dipde_dev/zipball/Janelia_2016
 
 
 RUN export DISPLAY=:99.0
+RUN sh -e /etc/init.d/xvfb start
+RUN sleep 3 # give xvfb some time to start
 RUN py.test /home/main/anaconda2/lib/python2.7/site-packages/dipde/test
 
 # Install requirements for Python 2
